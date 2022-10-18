@@ -14,7 +14,7 @@ ADMINS = []
 for usr in environ.get("ADMINS").split():
     ADMINS.append(int(usr))
 
-START_MSG = "<b>Hai {},\nI'm a private bot of @mh_world to delete group messages after a specific time</b>"
+START_MSG = "<b>Hai {},\nI'm a private bot of @alonekingjnanesh to delete group messages after a specific time</b>"
 
 
 User = Client(name="user-account",
@@ -38,7 +38,7 @@ async def start(bot, message):
     await message.reply(START_MSG.format(message.from_user.mention))
 
 @User.on_message(filters.chat(GROUPS))
-async def delete(user, message):
+async def delete(message):
     try:
        if message.from_user.id in ADMINS:
           return
