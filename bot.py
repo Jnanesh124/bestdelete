@@ -39,7 +39,10 @@ async def start(bot, message):
 
 @User.on_message(filters.chat(GROUPS))
 async def delete(user, message):
-else:
+    try:
+       if message.from_user.id in ADMINS:
+          return
+    else:
           await asyncio.sleep(TIME)
           await Bot.delete_messages(message.chat.id, message.id)
     except Exception as e:
@@ -52,3 +55,7 @@ print("Bot Started!")
 
 idle()
 
+User.stop()
+print("User Stopped!")
+Bot.stop()
+print("Bot Stopped!")
