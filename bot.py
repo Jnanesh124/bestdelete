@@ -38,10 +38,8 @@ async def start(bot, message):
     await message.reply(START_MSG.format(message.from_user.mention))
 
 @User.on_message(filters.chat(GROUPS))
-    try:
-       if message.from_user.id in ADMINS:
-          return
-       else:
+async def delete(user, message):
+else:
           await asyncio.sleep(TIME)
           await Bot.delete_messages(message.chat.id, message.id)
     except Exception as e:
